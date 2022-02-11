@@ -249,7 +249,7 @@ class LineGenerator(Visitor[Line]):
             docstring_started_empty = not docstring
 
             if is_multiline_string(leaf):
-                indent = " " * 4 * self.current_line.depth
+                indent = " " * 2 * self.current_line.depth
                 docstring = fix_docstring(docstring, indent)
             else:
                 docstring = docstring.strip()
@@ -920,7 +920,7 @@ def generate_trailers_to_omit(line: Line, line_length: int) -> Iterator[Set[Leaf
     if not line.magic_trailing_comma:
         yield omit
 
-    length = 4 * line.depth
+    length = 2 * line.depth
     opening_bracket: Optional[Leaf] = None
     closing_bracket: Optional[Leaf] = None
     inner_brackets: Set[LeafID] = set()
