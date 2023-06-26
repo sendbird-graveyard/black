@@ -110,19 +110,19 @@ jobs:
           ${{ steps.config.outputs.baseline-analysis }} ${{ steps.config.outputs.target-analysis }}
 
       - name: Upload diff report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: diff.html
           path: diff.html
 
       - name: Upload baseline analysis
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.config.outputs.baseline-analysis }}
           path: ${{ steps.config.outputs.baseline-analysis }}
 
       - name: Upload target analysis
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.config.outputs.target-analysis }}
           path: ${{ steps.config.outputs.target-analysis }}
@@ -137,7 +137,7 @@ jobs:
 
       - name: Upload summary file (PR only)
         if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: .pr-comment.json
           path: .pr-comment.json
